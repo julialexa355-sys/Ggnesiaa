@@ -1,32 +1,4 @@
 {
-  "updated": "2026-09-13T00:00:00Z",
-  "articles": [
-    {
-      "title": "Update Game Terbaru yang Sedang Ramai Dibicarakan",
-      "description": "Berita dan perkembangan terbaru dari dunia game.",
-      "image": "",
-      "url": "#",
-      "source": "GGNesia",
-      "game": "Game",
-      "published": "2026-09-13T00:00:00Z"
-    },
-    {
-      "title": "Turnamen eSports Terbaru Segera Dimulai",
-      "description": "Informasi jadwal dan perkembangan turnamen eSports.",
-      "image": "",
-      "url": "#",
-      "source": "GGNesia",
-      "game": "eSports",
-      "published": "2026-09-13T00:00:00Z"
-    },
-    {
-      "title": "Mobile Legends Hadirkan Perubahan Terbaru",
-      "description": "Informasi terbaru seputar Mobile Legends.",
-      "image": "",
-      "url": "#",
-      "source": "GGNesia",
-      "game": "Mobile Legends",
-      "published": "2026-09-13T00:00:00Z"
-    }
-  ]
+  "updated": "2026-09-12T22:04:49.062938+00:00",
+  "articles": []
 }
