@@ -1,0 +1,340 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0b0f19;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  width: 100%;
+  min-height: 72px;
+  padding: 15px 5%;
+  background: #111827;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box {
+  display: flex;
+  width: 420px;
+  max-width: 100%;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 12px 15px;
+
+  border: none;
+  outline: none;
+
+  background: #1f2937;
+  color: white;
+
+  border-radius: 8px 0 0 8px;
+}
+
+.search-box input::placeholder {
+  color: #9ca3af;
+}
+
+.search-box button {
+  padding: 0 18px;
+
+  border: none;
+  cursor: pointer;
+
+  background: #2563eb;
+  color: white;
+
+  border-radius: 0 8px 8px 0;
+}
+
+.search-box button:hover {
+  background: #1d4ed8;
+}
+
+/* =========================
+   NAVIGASI
+========================= */
+
+.navbar {
+  width: 100%;
+
+  padding: 14px 5%;
+
+  background: #0f172a;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 30px;
+
+  border-top: 1px solid #1f2937;
+  border-bottom: 1px solid #1f2937;
+}
+
+.navbar a {
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  white-space: nowrap;
+}
+
+.navbar a:hover {
+  color: #60a5fa;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: auto;
+
+  padding: 30px 5%;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  padding: 70px 20px;
+
+  margin-bottom: 35px;
+
+  text-align: center;
+
+  background: #111827;
+
+  border-radius: 14px;
+}
+
+.hero h1 {
+  font-size: 46px;
+
+  margin-bottom: 8px;
+}
+
+.hero p {
+  color: #9ca3af;
+  font-size: 17px;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+  margin-bottom: 40px;
+}
+
+.section h2 {
+  font-size: 25px;
+
+  margin-bottom: 18px;
+}
+
+/* =========================
+   TRENDING
+========================= */
+
+#trendingList {
+  min-height: 100px;
+
+  padding: 20px;
+
+  background: #111827;
+
+  border-radius: 12px;
+
+  color: #9ca3af;
+}
+
+/* =========================
+   BERITA
+========================= */
+
+#newsList {
+  min-height: 150px;
+
+  padding: 20px;
+
+  background: #111827;
+
+  border-radius: 12px;
+
+  color: #9ca3af;
+}
+
+/* =========================
+   ESPORTS
+========================= */
+
+.esports-menu {
+  display: grid;
+
+  grid-template-columns: repeat(6, 1fr);
+
+  gap: 10px;
+}
+
+.esports-menu a {
+  padding: 15px 8px;
+
+  text-align: center;
+
+  background: #1f2937;
+
+  color: white;
+
+  text-decoration: none;
+
+  border-radius: 8px;
+}
+
+.esports-menu a:hover {
+  background: #2563eb;
+}
+
+/* =========================
+   GAMES
+========================= */
+
+.game-list {
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 12px;
+}
+
+.game-list a {
+  padding: 20px 10px;
+
+  text-align: center;
+
+  background: #1f2937;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  border-radius: 10px;
+}
+
+.game-list a:hover {
+  background: #2563eb;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  padding: 30px 20px;
+
+  text-align: center;
+
+  background: #111827;
+
+  color: #9ca3af;
+
+  margin-top: 30px;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+/* =========================
+   RESPONSIVE HP
+========================= */
+
+@media (max-width: 700px) {
+
+  .header {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .logo {
+    text-align: center;
+
+    font-size: 28px;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .navbar {
+    justify-content: flex-start;
+
+    overflow-x: auto;
+
+    gap: 22px;
+
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  main {
+    padding: 20px 4%;
+  }
+
+  .hero {
+    padding: 45px 15px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .game-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .esports-menu {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
