@@ -1,0 +1,102 @@
+name: Update Berita GGNesia
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Ambil repository
+        uses: actions/checkout@v4
+
+      - name: Siapkan Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install RSS reader
+        run: |
+          pip install feedparser
+
+      - name: Ambil berita
+        run: |
+          python - <<'PY'
+          import feedparser
+          import json
+          from datetime import datetime, timezone
+
+          feeds = [
+              {
+                  "name": "Google News Gaming",
+                  "url": "https://news.google.com/rss/search?q=game+Indonesia&hl=id&gl=ID&ceid=ID:id"
+              },
+              {
+                  "name": "Google News Esports",
+                  "url": "https://news.google.com/rss/search?q=esports+Indonesia&hl=id&gl=ID&ceid=ID:id"
+              },
+              {
+                  "name": "Google News Mobile Legends",
+                  "url": "https://news.google.com/rss/search?q=Mobile+Legends&hl=id&gl=ID&ceid=ID:id"
+              },
+              {
+                  "name": "Google News PUBG Mobile",
+                  "url": "https://news.google.com/rss/search?q=PUBG+Mobile&hl=id&gl=ID&ceid=ID:id"
+              },
+              {
+                  "name": "Google News Free Fire",
+                  "url": "https://news.google.com/rss/search?q=Free+Fire&hl=id&gl=ID&ceid=ID:id"
+              },
+              {
+                  "name": "Google News Valorant",
+                  "url": "https://news.google.com/rss/search?q=Valorant&hl=id&gl=ID&ceid=ID:id"
+              }
+          ]
+
+          articles = []
+
+          for feed in feeds:
+              data = feedparser.parse(feed["url"])
+
+              for item in data.entries[:10]:
+
+                  article = {
+                      "title": item.get("title", ""),
+                      "description": item.get("summary", ""),
+                      "image": "",
+                      "url": item.get("link", ""),
+                      "source": feed["name"],
+                      "game": "",
+                      "published": item.get("published", "")
+                  }
+
+                  articles.append(article)
+
+          result = {
+              "updated": datetime.now(timezone.utc).isoformat(),
+              "articles": articles
+          }
+
+          with open("data/articles.json", "w", encoding="utf-8") as file:
+              json.dump(result, file, ensure_ascii=False, indent=2)
+
+          print(f"Berhasil mengambil {len(articles)} berita.")
+          PY
+
+      - name: Simpan berita ke repository
+        run: |
+          git config user.name "GGNesia Bot"
+          git config user.email "actions@github.com"
+
+          git add data/articles.json
+
+          git diff --cached --quiet || git commit -m "Update berita otomatis"
+
+          git push
